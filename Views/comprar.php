@@ -1,59 +1,10 @@
 <?php
 require_once 'header.php';
-// Simulação de dados de eventos
-$eventos = [
-    1 => [
-        'nome_evento' => 'Festival de Música',
-        'preco_evento' => 150.00,
-        'descricao_evento' => 'Um grande festival de música com várias bandas ao vivo!',
-        'imagem_evento' => 'https://via.placeholder.com/500x300?text=Musica',
-    ],
-    2 => [
-        'nome_evento' => 'Teatro ao Vivo',
-        'preco_evento' => 80.00,
-        'descricao_evento' => 'Uma peça teatral imperdível!',
-        'imagem_evento' => 'https://via.placeholder.com/500x300?text=Teatro',
-    ],
-    3 => [
-        'nome_evento' => 'Exposição de Arte',
-        'preco_evento' => 50.00,
-        'descricao_evento' => 'Exposição de arte moderna com artistas renomados.',
-        'imagem_evento' => 'https://via.placeholder.com/500x300?text=Arte',
-    ],
-    4 => [
-        'nome_evento' => 'Stand-Up Comedy',
-        'preco_evento' => 120.00,
-        'descricao_evento' => 'Risos garantidos com comediantes incríveis!',
-        'imagem_evento' => 'https://via.placeholder.com/500x300?text=Comedy',
-    ],
-    5 => [
-        'nome_evento' => 'Festival de Música',
-        'preco_evento' => 150.00,
-        'descricao_evento' => 'Um grande festival de música com várias bandas ao vivo!',
-        'imagem_evento' => 'https://via.placeholder.com/500x300?text=Musica',
-    ],
-    6 => [
-        'nome_evento' => 'Teatro ao Vivo',
-        'preco_evento' => 80.00,
-        'descricao_evento' => 'Uma peça teatral imperdível!',
-        'imagem_evento' => 'https://via.placeholder.com/500x300?text=Teatro',
-    ],
-    7 => [
-        'nome_evento' => 'Exposição de Arte',
-        'preco_evento' => 50.00,
-        'descricao_evento' => 'Exposição de arte moderna com artistas renomados.',
-        'imagem_evento' => 'https://via.placeholder.com/500x300?text=Arte',
-    ],
-    8 => [
-        'nome_evento' => 'Stand-Up Comedy',
-        'preco_evento' => 120.00,
-        'descricao_evento' => 'Risos garantidos com comediantes incríveis!',
-        'imagem_evento' => 'https://via.placeholder.com/500x300?text=Comedy',
-    ]
-];
 
-// Pega o ID do evento da URL
+$eventoDAO = new EventoDAO($pdo);
+
 $id_evento = $_GET['id'] ?? null;
+$evento = $eventoDAO->buscarEvento(new Usuario($id_evento)); 
 
 if ($id_evento && isset($eventos[$id_evento])) {
     $evento = $eventos[$id_evento];
