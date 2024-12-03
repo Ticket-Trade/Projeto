@@ -1,16 +1,15 @@
 <?php
-$host = 'localhost';
-$bd = 'ticket_trade';
+$host = "localhost";
+$bd = "tickettrade";
 
-$user = 'root';
-$password = 'Fatec@123';
-$charset = 'utf8mb4';
+$user = "root";
+$password = "";
+$charset = "utf8mb4";
 
-$dsn = "mysql:host->$host;dbname=$bd;charset=$charset";
+$dsn = "mysql:host=$host;dbname=$bd;charset=$charset";
 
 try {
-    $pdo = new PDO($dsn, $user, $password);
+    $pdo = new PDO($dsn, "root", "");
 } catch (PDOException $e) {
     throw new PDOException($e->getMessage(), $e->getCode());
 }
-?>

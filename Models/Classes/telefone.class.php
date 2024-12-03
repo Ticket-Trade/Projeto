@@ -24,6 +24,6 @@ class Telefone {
     }
 
     public function setNum($num) {
-        $this->numero_telefone = $num;
+        $this->numero_telefone[] = $num;
     }
 }
