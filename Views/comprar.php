@@ -4,11 +4,9 @@ require_once 'header.php';
 $eventoDAO = new EventoDAO($pdo);
 
 $id_evento = $_GET['id'] ?? null;
-$evento = $eventoDAO->buscarEvento(new Usuario($id_evento)); 
+$evento = $eventoDAO->buscarEvento(new Usuario($id_evento))[0];
 
-if ($id_evento && isset($eventos[$id_evento])) {
-    $evento = $eventos[$id_evento];
-} else {
+if (!($id_evento && !empty($evento))) {
     echo "Evento não encontrado!";
     exit;
 }
@@ -30,14 +28,14 @@ if ($id_evento && isset($eventos[$id_evento])) {
     <div class="row">
         <!-- Coluna para a imagem do evento -->
         <div class="col-md-6">
-            <img src="<?php echo $evento['imagem_evento']; ?>" class="img-fluid rounded" alt="<?php echo $evento['nome_evento']; ?>">
+            <img src="<?php echo $evento->imagem; ?>" class="img-fluid rounded" alt="<?php echo $evento->nome; ?>">
         </div>
 
         <!-- Coluna para os detalhes e botão de compra -->
         <div class="col-md-6">
-            <h3><?php echo $evento['nome_evento']; ?></h3>
-            <p><strong>Detalhes:</strong> <?php echo $evento['descricao_evento']; ?></p>
-            <p><strong>Preço:</strong> R$ <?php echo number_format($evento['preco_evento'], 2, ',', '.'); ?></p>
+            <h3><?php echo $evento->nome; ?></h3>
+            <p><strong>Detalhes:</strong> <?php echo $evento->descricao; ?></p>
+            <p><strong>Preço:</strong> R$ <?php echo number_format($evento->preco, 2, ',', '.'); ?></p>
             <a href="confirmar_compra.php?id=<?php echo $id_evento; ?>" class="btn btn-success">Confirmar Compra</a>
         </div>
     </div>

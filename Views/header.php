@@ -35,7 +35,7 @@ require_once '../Models/DAOs/autorizacao.dao.php';
         <div class="row align-items-center">
             <!-- Logo -->
             <div class="col-md-4">
-                <a href="/" class="text-white text-decoration-none">
+                <a href="index.php" class="text-white text-decoration-none">
                     <h1><i class="fas fa-ticket-alt"></i> Ticket Trade</h1>
                 </a>
             </div>
@@ -49,13 +49,13 @@ require_once '../Models/DAOs/autorizacao.dao.php';
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav ms-auto">
                             <li class="nav-item">
-                                <a class="nav-link text-white" href="/eventos"><i class="fas fa-calendar-alt"></i> Eventos</a>
+                                <a class="nav-link text-white" href="#"><i class="fas fa-calendar-alt"></i> Eventos</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-white" href="/minha-conta"><i class="fas fa-user"></i> Minha Conta</a>
+                                <a class="nav-link text-white" href="#"><i class="fas fa-user"></i> Minha Conta</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-white" href="/carrinho"><i class="fas fa-shopping-cart"></i> Carrinho</a>
+                                <a class="nav-link text-white" href="#"><i class="fas fa-shopping-cart"></i> Carrinho</a>
                             </li>
                         </ul>
                     </div>
