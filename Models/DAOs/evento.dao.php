@@ -12,4 +12,13 @@ class EventoDAO {
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_OBJ);
     }
+
+    public function buscarEvento($evento) {
+        $sql = 'SELECT * FROM eventos WHERE id = :id';
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([
+            'id' => $evento->getId()
+        ]);
+        return $stmt->fetchAll(PDO::FETCH_OBJ);
+    }
 }
